@@ -1,0 +1,50 @@
+#include<iostream>
+using namespace std;
+
+int insertAtEnd(int arr[], int n, int cap, int val){
+	//check overflow
+	if(n==cap){
+		cout<< "Array is full\n";
+		return n;
+	}
+	
+	//inser at end
+	arr[n]= val;
+	
+	return n+1;  //new size
+}
+
+int main(){
+	int cap;
+	cout<< "Enter array capacity: ";
+	cin>> cap;
+	
+	int arr[100];  //fixed max size
+	int n;
+	
+	cout<< "Enter number of elements: ";
+	cin>> n;
+	
+	if(n>cap){
+		cout<< "Invalid input\n";
+		return 0;
+	}
+	
+	cout<< "Enter array elements:\n";
+	for(int i=0; i<n; i++){
+		cin>> arr[i];
+	}
+	
+	int val;
+	cout<< "Enter value to insert at end: ";
+	cin>> val;
+	
+	n= insertAtEnd(arr, n, cap, val);
+	
+	cout<< "Array after insertion:\n";
+	for(int i=0; i<n; i++){
+		cout<< arr[i]<< " ";
+	}
+	
+	return 0;
+}
